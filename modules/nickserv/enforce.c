@@ -278,6 +278,9 @@ check_pending_regain(const char *nick)
 	{
 		notice(nicksvs.nick, u->nick, _("\2%s\2 has been regained."), data->nick);
 		fnc_sts(nicksvs.me->me, u, data->nick, FNC_FORCE);
+		// Clear ircd-side nick enforcement; this avoids users being unable
+		// to change the casing of their nick post-REGAIN while on the regained nick
+		holdnick_sts(nicksvs.me->me, 0, data->nick, mn->owner);
 	}
 
 	destroy_pending_regain(nick, data, NULL);
@@ -585,6 +588,7 @@ ns_cmd_regain(struct sourceinfo *si, int parc, char *parv[])
 			}
 			else
 			{
+				holdnick_sts(si->service->me, 0, target, mn->owner);
 				fnc_sts(nicksvs.me->me, si->su, target, FNC_FORCE);
 				command_success_nodata(si, _("\2%s\2 has been regained."), target);
 			}
