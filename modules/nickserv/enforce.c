@@ -258,12 +258,27 @@ check_pending_regain(const char *nick)
 	slog(LG_DEBUG, "%s: found %s -> %s", MOWGLI_FUNC_NAME, data->client, data->nick);
 
 	struct user *u = user_find(data->client);
+	struct mynick *mn = mynick_find(data->nick);
+
+	if (!mn)
+	{
+		slog(LG_DEBUG, "%s: dropping regain attempt (nick dropped)", MOWGLI_FUNC_NAME);
+	}
 	// Make sure they haven't changed nick themselves (or if the protocol
 	// doesn't support UIDs, someone else might now be using their nick)
-	if (u && u->ts == data->client_ts)
-		fnc_sts(nicksvs.me->me, u, data->nick, FNC_FORCE);
+	else if (!u)
+	{
+		slog(LG_DEBUG, "%s: dropping regain attempt (source user gone)", MOWGLI_FUNC_NAME);
+	}
+	else if (u->ts != data->client_ts)
+	{
+		slog(LG_DEBUG, "%s: dropping regain attempt (source user nickTS mismatch)", MOWGLI_FUNC_NAME);
+	}
 	else
-		slog(LG_DEBUG, "%s: dropping regain attempt (TS mismatch)", MOWGLI_FUNC_NAME);
+	{
+		notice(nicksvs.nick, u->nick, _("\2%s\2 has been regained."), data->nick);
+		fnc_sts(nicksvs.me->me, u, data->nick, FNC_FORCE);
+	}
 
 	destroy_pending_regain(nick, data, NULL);
 }
@@ -571,8 +586,8 @@ ns_cmd_regain(struct sourceinfo *si, int parc, char *parv[])
 			else
 			{
 				fnc_sts(nicksvs.me->me, si->su, target, FNC_FORCE);
+				command_success_nodata(si, _("\2%s\2 has been regained."), target);
 			}
-			command_success_nodata(si, _("\2%s\2 has been regained."), target);
 		}
 
 		if (MOWGLI_LIST_LENGTH(&mn->owner->logins) >= me.maxlogins)
