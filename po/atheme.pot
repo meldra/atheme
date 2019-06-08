@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Atheme IRC Services 7.3.0-rc2\n"
 "Report-Msgid-Bugs-To: <ircs://chat.freenode.net:6697/atheme-i18n>\n"
-"POT-Creation-Date: 2019-05-03 20:28+0000\n"
+"POT-Creation-Date: 2019-06-08 20:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -183,7 +183,7 @@ msgstr ""
 msgid "\002%s\002 can now take ownership of \002%s\002."
 msgstr ""
 
-#: include/atheme/constants.h:93
+#: include/atheme/constants.h:94
 #, c-format
 msgid "\002%s\002 can only be executed via IRC."
 msgstr ""
@@ -681,7 +681,7 @@ msgid ""
 "not identified."
 msgstr ""
 
-#: include/atheme/constants.h:87
+#: include/atheme/constants.h:88
 #, c-format
 msgid "\002%s\002 is closed."
 msgstr ""
@@ -691,7 +691,7 @@ msgstr ""
 msgid "\002%s\002 is closed; it cannot be transferred."
 msgstr ""
 
-#: include/atheme/constants.h:88
+#: include/atheme/constants.h:89
 #, c-format
 msgid "\002%s\002 is currently empty."
 msgstr ""
@@ -961,7 +961,7 @@ msgstr ""
 msgid "\002%s\002 is not registered, and was not marked."
 msgstr ""
 
-#: include/atheme/constants.h:94
+#: include/atheme/constants.h:95
 #, c-format
 msgid "\002%s\002 is not registered."
 msgstr ""
@@ -2990,7 +2990,7 @@ msgstr ""
 msgid "Displays a user's metadata."
 msgstr ""
 
-#: include/atheme/constants.h:90
+#: include/atheme/constants.h:91
 msgid "Displays contextual help information."
 msgstr ""
 
@@ -3851,7 +3851,7 @@ msgstr ""
 msgid "Inspect the Perl interpreter"
 msgstr ""
 
-#: include/atheme/constants.h:91
+#: include/atheme/constants.h:92
 #, c-format
 msgid "Insufficient parameters for \002%s\002."
 msgstr ""
@@ -3950,7 +3950,7 @@ msgstr ""
 msgid "Invalid option for \002%s\002"
 msgstr ""
 
-#: include/atheme/constants.h:92
+#: include/atheme/constants.h:93
 #, c-format
 msgid "Invalid parameters for \002%s\002."
 msgstr ""
@@ -5092,7 +5092,11 @@ msgstr ""
 msgid "Opts you out of Last Login notices upon identifying to your account."
 msgstr ""
 
-#: libathemecore/services.c:958
+#: modules/nickserv/set_hideloginfailures.c:57
+msgid "Opts you out of Login Failure notices for your account."
+msgstr ""
+
+#: libathemecore/services.c:966
 #, c-format
 msgid "Output limit (%u) exceeded, halting output"
 msgstr ""
@@ -7317,11 +7321,13 @@ msgstr ""
 
 #: modules/nickserv/enforce.c:264 modules/nickserv/resetpass.c:73
 #: modules/nickserv/sendpass.c:222 modules/nickserv/set_emailmemos.c:72
-#: modules/nickserv/set_hidelastlogin.c:56 modules/nickserv/set_hidemail.c:65
-#: modules/nickserv/set_nevergroup.c:66 modules/nickserv/set_neverop.c:66
-#: modules/nickserv/set_nogreet.c:65 modules/nickserv/set_nomemo.c:60
-#: modules/nickserv/set_noop.c:65 modules/nickserv/set_nopassword.c:70
-#: modules/nickserv/setpass.c:82 modules/nickserv/set_quietchg.c:66
+#: modules/nickserv/set_hidelastlogin.c:56
+#: modules/nickserv/set_hideloginfailures.c:46
+#: modules/nickserv/set_hidemail.c:65 modules/nickserv/set_nevergroup.c:66
+#: modules/nickserv/set_neverop.c:66 modules/nickserv/set_nogreet.c:65
+#: modules/nickserv/set_nomemo.c:60 modules/nickserv/set_noop.c:65
+#: modules/nickserv/set_nopassword.c:70 modules/nickserv/setpass.c:82
+#: modules/nickserv/set_quietchg.c:66
 #, c-format
 msgid "The \002%s\002 flag has been removed for account \002%s\002."
 msgstr ""
@@ -7342,11 +7348,12 @@ msgid "The \002%s\002 flag has been set for \002%s\002."
 msgstr ""
 
 #: modules/nickserv/enforce.c:254 modules/nickserv/set_emailmemos.c:58
-#: modules/nickserv/set_hidelastlogin.c:40 modules/nickserv/set_hidemail.c:49
-#: modules/nickserv/set_nevergroup.c:49 modules/nickserv/set_neverop.c:49
-#: modules/nickserv/set_nogreet.c:49 modules/nickserv/set_nomemo.c:46
-#: modules/nickserv/set_noop.c:49 modules/nickserv/set_nopassword.c:54
-#: modules/nickserv/set_quietchg.c:50
+#: modules/nickserv/set_hidelastlogin.c:40
+#: modules/nickserv/set_hideloginfailures.c:32
+#: modules/nickserv/set_hidemail.c:49 modules/nickserv/set_nevergroup.c:49
+#: modules/nickserv/set_neverop.c:49 modules/nickserv/set_nogreet.c:49
+#: modules/nickserv/set_nomemo.c:46 modules/nickserv/set_noop.c:49
+#: modules/nickserv/set_nopassword.c:54 modules/nickserv/set_quietchg.c:50
 #, c-format
 msgid "The \002%s\002 flag has been set for account \002%s\002."
 msgstr ""
@@ -7367,11 +7374,12 @@ msgid "The \002%s\002 flag is already set for \002%s\002."
 msgstr ""
 
 #: modules/nickserv/enforce.c:248 modules/nickserv/set_emailmemos.c:52
-#: modules/nickserv/set_hidelastlogin.c:32 modules/nickserv/set_hidemail.c:41
-#: modules/nickserv/set_nevergroup.c:41 modules/nickserv/set_neverop.c:41
-#: modules/nickserv/set_nogreet.c:41 modules/nickserv/set_nomemo.c:40
-#: modules/nickserv/set_noop.c:41 modules/nickserv/set_nopassword.c:40
-#: modules/nickserv/set_quietchg.c:42
+#: modules/nickserv/set_hidelastlogin.c:32
+#: modules/nickserv/set_hideloginfailures.c:25
+#: modules/nickserv/set_hidemail.c:41 modules/nickserv/set_nevergroup.c:41
+#: modules/nickserv/set_neverop.c:41 modules/nickserv/set_nogreet.c:41
+#: modules/nickserv/set_nomemo.c:40 modules/nickserv/set_noop.c:41
+#: modules/nickserv/set_nopassword.c:40 modules/nickserv/set_quietchg.c:42
 #, c-format
 msgid "The \002%s\002 flag is already set for account \002%s\002."
 msgstr ""
@@ -7394,11 +7402,12 @@ msgstr ""
 
 #: modules/nickserv/enforce.c:268 modules/nickserv/set_emailmemos.c:66
 #: modules/nickserv/set_enforcetime.c:29
-#: modules/nickserv/set_hidelastlogin.c:48 modules/nickserv/set_hidemail.c:57
-#: modules/nickserv/set_nevergroup.c:58 modules/nickserv/set_neverop.c:58
-#: modules/nickserv/set_nogreet.c:57 modules/nickserv/set_nomemo.c:54
-#: modules/nickserv/set_noop.c:57 modules/nickserv/set_nopassword.c:62
-#: modules/nickserv/set_quietchg.c:58
+#: modules/nickserv/set_hidelastlogin.c:48
+#: modules/nickserv/set_hideloginfailures.c:39
+#: modules/nickserv/set_hidemail.c:57 modules/nickserv/set_nevergroup.c:58
+#: modules/nickserv/set_neverop.c:58 modules/nickserv/set_nogreet.c:57
+#: modules/nickserv/set_nomemo.c:54 modules/nickserv/set_noop.c:57
+#: modules/nickserv/set_nopassword.c:62 modules/nickserv/set_quietchg.c:58
 #, c-format
 msgid "The \002%s\002 flag is not set for account \002%s\002."
 msgstr ""
@@ -7910,19 +7919,19 @@ msgstr ""
 msgid "The transfer of \002%s\002 has been cancelled."
 msgstr ""
 
-#: libathemecore/services.c:1212
+#: libathemecore/services.c:1220
 msgid "The vhost provided contains invalid characters."
 msgstr ""
 
-#: libathemecore/services.c:1229
+#: libathemecore/services.c:1237
 msgid "The vhost provided is invalid."
 msgstr ""
 
-#: libathemecore/services.c:1217
+#: libathemecore/services.c:1225
 msgid "The vhost provided is too long."
 msgstr ""
 
-#: libathemecore/services.c:1223
+#: libathemecore/services.c:1231
 msgid "The vhost provided looks like a CIDR mask."
 msgstr ""
 
@@ -8649,7 +8658,7 @@ msgid ""
 "You are not allowed to set \002%s\002 on template \002%s\002 in \002%s\002."
 msgstr ""
 
-#: include/atheme/constants.h:96
+#: include/atheme/constants.h:97
 msgid "You are not authorized to perform this operation."
 msgstr ""
 
@@ -8669,7 +8678,7 @@ msgstr ""
 msgid "You are not logged in as \002%s\002."
 msgstr ""
 
-#: include/atheme/constants.h:97
+#: include/atheme/constants.h:98
 msgid "You are not logged in."
 msgstr ""
 
@@ -8869,7 +8878,7 @@ msgstr ""
 msgid "You do not have appropriate permissions to set flags: \002%s\002"
 msgstr ""
 
-#: include/atheme/constants.h:95
+#: include/atheme/constants.h:96
 #, c-format
 msgid "You do not have the \002%s\002 privilege."
 msgstr ""
@@ -9177,7 +9186,7 @@ msgstr ""
 msgid "You must specify a positive integer for limit."
 msgstr ""
 
-#: include/atheme/constants.h:89
+#: include/atheme/constants.h:90
 msgid ""
 "You must verify your e-mail address before you may perform this operation."
 msgstr ""
