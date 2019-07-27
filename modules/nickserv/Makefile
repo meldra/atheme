@@ -33,6 +33,7 @@ SRCS =				\
 	pwquality.c		\
 	register.c		\
 	regnolimit.c		\
+	remind_email.c		\
 	resetpass.c		\
 	restrict.c		\
 	return.c		\
